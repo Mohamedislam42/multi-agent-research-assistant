@@ -1,0 +1,21 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+*.env
+*.key
+
+# Generated output (keep example_report.md instead, tracked separately)
+report.md
+
+# OS/editor junk
+.DS_Store
+.vscode/
+*.log
