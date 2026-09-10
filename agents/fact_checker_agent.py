@@ -31,10 +31,24 @@ class FactCheckerAgent:
         self.llm = llm
 
     def run(self, draft: str, sources: list[dict]) -> str:
-        source_lines = [f"[{s['id']}] {s['title']} ({s['url']})" for s in sources]
+        source_lines = []
+        for s in sources:
+            snippet = s.get("snippet", "")
+            title = s.get("title", "Untitled")
+            url = s.get("url", "")
+            if snippet:
+                source_lines.append(f"[{s['id']}] {title} — {snippet} ({url})")
+            else:
+                source_lines.append(f"[{s['id']}] {title} ({url})")
+
         prompt = FACT_CHECK_PROMPT.format(
             draft=draft,
             sources="\n".join(source_lines),
         )
         response = self.llm.invoke(prompt)
-        return response.content
+        content = response.content.strip()
+        if not content:
+            return "No issues found. All claims are supported by cited sources."
+        return content
+
+

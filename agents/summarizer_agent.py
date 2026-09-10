@@ -30,8 +30,19 @@ class SummarizerAgent:
         numbered_sources = []
         source_lines = []
         for i, f in enumerate(findings, start=1):
-            source_lines.append(f"[{i}] {f['title']} — {f['snippet']} ({f['url']})")
-            numbered_sources.append({"id": i, "title": f["title"], "url": f["url"]})
+            snippet = f.get("snippet", "").strip()
+            title = f.get("title", "Untitled Source").strip()
+            url = f.get("url", "")
+            query = f.get("query", "")
+            
+            source_lines.append(f"[{i}] {title} — {snippet} ({url})")
+            numbered_sources.append({
+                "id": i,
+                "title": title,
+                "url": url,
+                "snippet": snippet,
+                "query": query,
+            })
 
         prompt = SUMMARY_PROMPT.format(
             question=question,
@@ -39,3 +50,4 @@ class SummarizerAgent:
         )
         response = self.llm.invoke(prompt)
         return response.content, numbered_sources
+
