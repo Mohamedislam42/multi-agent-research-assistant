@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -9,6 +9,7 @@ env/
 # Environment variables / secrets
 .env
 .env.*
+!.env.example
 *.env
 *.key
 

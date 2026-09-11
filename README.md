@@ -67,8 +67,8 @@ Built for speed and precision using **Groq LPUs (LLaMA 3.3 70B)**, **LangChain a
 ### 1. Clone Repository & Install Dependencies
 
 ```bash
-git clone https://github.com/Mohamedislam42/multi-agent-research-assistant.git
-cd multi-agent-research-assistant
+git clone https://github.com/Mohamedislam42/research-assistant.git
+cd research-assistant
 
 # Create virtual environment (optional but recommended)
 python -m venv venv
@@ -120,10 +120,10 @@ The output is displayed in the terminal and saved to `report.md`.
 
 ### Deploying to Streamlit Community Cloud (Recommended — Free & 1-Click)
 
-1. **Fork or Push** this repository to your GitHub account (`https://github.com/Mohamedislam42/multi-agent-research-assistant`).
+1. **Fork or Push** this repository to your GitHub account (`https://github.com/Mohamedislam42/research-assistant`).
 2. Log in to [share.streamlit.io](https://share.streamlit.io/) with your GitHub account.
 3. Click **"New app"** and select:
-   - **Repository:** `Mohamedislam42/multi-agent-research-assistant`
+   - **Repository:** `Mohamedislam42/research-assistant`
    - **Branch:** `main`
    - **Main file path:** `app.py`
 4. Expand **Advanced settings > Secrets** and enter:
@@ -182,7 +182,7 @@ docker run -p 8501:8501 -e GROQ_API_KEY="your-groq-key" research-assistant
 
 **Mohamed Islam**  
 - **GitHub:** [@Mohamedislam42](https://github.com/Mohamedislam42)  
-- **Project Repository:** [multi-agent-research-assistant](https://github.com/Mohamedislam42/multi-agent-research-assistant)
+- **Project Repository:** [research-assistant](https://github.com/Mohamedislam42/research-assistant)
 
 ---
 
